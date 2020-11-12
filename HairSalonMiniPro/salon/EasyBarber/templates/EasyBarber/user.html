@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+</head>
+<body>
+<ul>
+    {% for people in users %}
+
+  <li> {{people.cust_name}}</li>
+</ul>
+{% endfor %}
+<span>Link to home page: </span>
+<a href="{% url 'home'  %}">HOME</a>
+</body>
+</html>

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Customers</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %} Customers {% endblock %}
+
+{% block content %}
 <ul>
     {% for people in users %}
 
@@ -13,5 +11,5 @@
 {% endfor %}
 <span>Link to home page: </span>
 <a href="{% url 'home'  %}">HOME</a>
-</body>
-</html>
+
+{% endblock %}

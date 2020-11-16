@@ -3,13 +3,14 @@
 {% block title %} Customers {% endblock %}
 
 {% block content %}
-<ul>
-    {% for people in users %}
-
-  <li> {{people.cust_name}}</li>
-</ul>
-{% endfor %}
-<span>Link to home page: </span>
+<h1>Owner SignUp</h1>
+<form method="post">
+    <table>
+        {{form}}
+    </table>
+    {% csrf_token %}
+    <button type="submit">SignUp</button>
+</form>
 <a href="{% url 'home'  %}">HOME</a>
 
 {% endblock %}

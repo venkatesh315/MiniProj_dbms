@@ -1,19 +1,19 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome!!!</title>
-    <link rel="stylesheet" href="{% static 'EasyBarber/style.css' %>">
-</head>
-<body>
+{% block title %}WELCOME!!!{% endblock %}
+
+{% block content %}
 <h1> EasyBarber</h1>
-<strong>A website that books your barber</strong>
-<img src="{% static 'EasyBarber/calendar.png' %}" width='100px'>
-<p> {{news}} and Find your best stylist</p>
-<a href="{% url 'customer' %}">
-Customer List
+<strong><h3>A website that books your barber</h3></strong>
+<img src="{% static 'EasyBarber/BarberLogo.jpg' %}" alt="Easy Barber logo is uploading" width="500px">
+<h3>Customer SignUp</h3>
+<a href="{% url 'fcs' %}">
+    SignUp
 </a>
 
-</body>
-</html>
+<h3>Owner SignUp</h3>
+<a href="{% url 'fos' %}">
+SignUp
+</a>
+
+{% endblock %}

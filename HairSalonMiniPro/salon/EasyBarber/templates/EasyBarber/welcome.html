@@ -3,17 +3,17 @@
 {% block title %}WELCOME!!!{% endblock %}
 
 {% block content %}
+ <div class="marquee">
+     <h3><p><b>Get Flat 50% Discount on your first booking</b></p></h3>
+</div>
 <h1> EasyBarber</h1>
 <strong><h3>A website that books your barber</h3></strong>
-<img src="{% static 'EasyBarber/BarberLogo.jpg' %}" alt="Easy Barber logo is uploading" width="500px">
-<h3>Customer SignUp</h3>
-<a href="{% url 'fcs' %}">
-    SignUp
-</a>
 
-<h3>Owner SignUp</h3>
-<a href="{% url 'fos' %}">
-SignUp
-</a>
+<hr size="3" color="black">
+<header><a href="{% url 'about' %}" style="margin-right:20px" target="_blank">About Us</a><a href="{% url 'fcs' %}" style="margin-right:20px">Customer SignUp</a> <a href="{% url 'fos' %}">Owner SignUp</a></header>
+<hr size="3" color="black">
+<br>
+<img src="{% static 'EasyBarber/Logo_EasyBarber.jpeg' %}" alt="Easy Barber logo is uploading" width="400px">
+
 
 {% endblock %}

@@ -8,6 +8,9 @@ from django.http import HttpResponse
 def welcome(request):
     return render(request,'EasyBarber/welcome.html')
 
+def about_us(request):
+    return render(request,'EasyBarber/about.html')
+
 
 Owner_Signup=modelform_factory(Shop_Owner,exclude=['own_id'])
 

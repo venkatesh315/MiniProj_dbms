@@ -1,7 +1,9 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.forms import modelform_factory
 from .models import *
+from EasyBarber.forms import RegisterForm
 from django.http import HttpResponse
+
 # Create your views here.
 
 
@@ -33,11 +35,32 @@ def cust_signup(request):
         form_cs=CustSignUp(request.POST)
         if form_cs.is_valid():
             form_cs.save()
-            return redirect(welcome)
+            return redirect(register_cust)
 
     else:
         form_cs=CustSignUp()
     return render(request,'EasyBarber/cust_new.html',{"form":form_cs})
+
+
+
+def register_cust(request):
+        if request.method == "POST":
+            form_c = RegisterForm(request.POST)
+            if form_c.is_valid():
+                form_c.save()
+                return redirect(welcome)
+
+        else:
+            form_c = RegisterForm()
+        return render(request,"EasyBarber/cust_password.html",{"form":form_c})
+
+def list_of_shops(request):
+    return render(request,"EasyBarber/shop_list.html")
+
+
+
+
+
 
 
 

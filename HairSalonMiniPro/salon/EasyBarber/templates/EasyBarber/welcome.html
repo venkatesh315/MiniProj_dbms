@@ -1,19 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}WELCOME!!!{% endblock %}
+{% block title %}Salon{% endblock %}
 
 {% block content %}
- <div class="marquee">
-     <h3><p><b>Get Flat 50% Discount on your first booking</b></p></h3>
-</div>
-<h1> EasyBarber</h1>
-<strong><h3>A website that books your barber</h3></strong>
 
-<hr size="3" color="black">
-<header><a href="{% url 'about' %}" style="margin-right:20px" target="_blank">About Us</a><a href="{% url 'fcs' %}" style="margin-right:20px">Customer SignUp</a> <a href="{% url 'fos' %}">Owner SignUp</a></header>
-<hr size="3" color="black">
+ <div class="marquee">
+     <h2><p><strong>Welcome!!! Thank You for opting EasyBarber </strong></p></h2>
+</div>
+
+
+<div id="head"><h1> EasyBarber</h1></div>
+<div class="imglogo"><img src="{% static 'EasyBarber/Logo.jpg' %}" alt="Logo"></div>
+<div id="name">
+    <p><strong><h2>A website that books your barber</h2></strong></p>
+</div>
 <br>
-<img src="{% static 'EasyBarber/Logo_EasyBarber.jpeg' %}" alt="Easy Barber logo is uploading" width="400px">
+<br>
+<br>
+
+<div id="menu">
+<ul>
+    <li><a href="{% url 'about' %}" target="_blank">About Us</a></li>
+    <li><a href="{% url 'fcs' %}" style="margin-left:20px">Customer SignUp</a></li>
+    <li><a href="{% url 'fos' %}" style="margin-left:20px" >Owner SignUp</a></li>
+    <li><a href="{% url 'login' %}" style="margin-left:20px" target="_blank">Customer Login</a></li>
+    <li><a href="{% url 'store' %}" style="margin-left:20px" target="_blank">Salon Shops</a></li>
+</ul>
+</div>
+
+<br>
+<br>
+<div class="quotes">
+    <h2>"Your Hair is Your Best Accessory</h2>
+      <br>
+      <h2>AND</h2>
+      <br>
+    <h2>We Groom It The Best"</h2>
+</div>
+
 
 
 {% endblock %}

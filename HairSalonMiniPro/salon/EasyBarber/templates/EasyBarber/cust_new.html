@@ -1,15 +1,21 @@
 {% extends "base.html" %}
 
 {% block title %}New Customer {% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<h1> Customer SignUp</h1>
+
+<h1 style="color:DodgerBlue"> Customer Registration</h1>
+<h2 style="color:Lime">Step 1: Enter Personal Details</h2>
+
 <form method="post">
     <table>
-        {{form}}
+        {{form|crispy}}
     </table>
     {% csrf_token %}
-    <button type="submit">SignUp</button>
+    <br>
+    <button type="submit" style="margin-left: 150px">Submit</button>
 </form>
+<br>
 <a href="{% url 'home'  %}">HOME</a>
 {% endblock %}

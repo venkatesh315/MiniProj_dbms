@@ -15,13 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
 from EasyBarber.views import *
+
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('home',welcome,name='home'),
     path('EasyBarber/',include('EasyBarber.urls')),
+    path('', include("django.contrib.auth.urls")),
+
+
+
+
 
 ]

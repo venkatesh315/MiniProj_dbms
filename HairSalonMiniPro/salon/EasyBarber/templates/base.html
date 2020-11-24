@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+
     <link rel="stylesheet" href="{% static 'EasyBarber/style.css' %}">
     <link rel="stylesheet" href="{% static 'EasyBarber/marquee.css' %}">
-
+    <link rel="stylesheet" href="{% static 'EasyBarber/link.css' %}">
+    <link rel="stylesheet" href="{% static 'EasyBarber/image_align.css' %}">
 </head>
 <body>
+
     {% block content %}
     {% endblock %}
+
 </body>
 </html>

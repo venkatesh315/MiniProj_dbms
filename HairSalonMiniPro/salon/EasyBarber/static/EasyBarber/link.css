@@ -1,0 +1,41 @@
+li
+{
+  display:inline-block;
+}
+
+#menu
+{
+
+  background-color: Black;
+  color: DodgerBlue;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+/* unvisited link */
+a:link {
+  color: DodgerBlue;
+}
+
+/* visited link */
+a:visited {
+  color: DodgerBlue;
+}
+
+/* mouse over link */
+a:hover {
+  color: Orange;
+
+}
+
+/* selected link */
+a:active {
+  color: Red;
+
+}
+
+
+

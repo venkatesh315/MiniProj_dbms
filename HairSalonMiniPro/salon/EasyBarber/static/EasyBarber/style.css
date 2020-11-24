@@ -1,6 +1,58 @@
 body{
 font-family: Serif;
-color: Navy;
-background-color:Azure;
+background-image:url('https://www.headcurve.com/wp-content/uploads/2018/12/Barbershop-interior-design-dec8-00013.jpg');
+color:OrangeRed;
+
 }
+
+#name
+{
+color:White;
+background-color:Black;
+margin-left:300px;
+width:380px;
+text-transform:capitalize;
+
+}
+
+#head
+{
+color:DodgerBlue;
+margin-left:200px;
+text-transform:uppercase;
+}
+
+.imglogo img
+{
+
+  border-radius: 50%;
+  padding: 5px;
+  position: absolute;
+  top: 100px;
+  width:180px;
+  left:0px;
+
+}
+
+.quotes
+{
+text-align:center;
+color:Red;
+}
+
+
+.column img
+{
+  position: absolute;
+  top: 300px;
+  width:400px;
+  border-radius: 50%;
+
+}
+
+p {
+  font-size: 18px;
+}
+
+
 

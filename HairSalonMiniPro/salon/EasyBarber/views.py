@@ -21,7 +21,7 @@ def owner_signup(request):
         form_os = Owner_Signup(request.POST)
         if form_os.is_valid():
             form_os.save()
-            return redirect(welcome)
+            return redirect(register_owner)
 
     else:
         form_os = Owner_Signup()
@@ -54,8 +54,22 @@ def register_cust(request):
             form_c = RegisterForm()
         return render(request,"EasyBarber/cust_password.html",{"form":form_c})
 
+
 def list_of_shops(request):
     return render(request,"EasyBarber/shop_list.html")
+
+
+def register_owner(request):
+        if request.method == "POST":
+            form_ow = RegisterForm(request.POST)
+            if form_ow.is_valid():
+                form_ow.save()
+                return redirect(welcome)
+
+        else:
+            form_ow = RegisterForm()
+        return render(request, "EasyBarber/own_password.html", {"form": form_ow})
+
 
 
 

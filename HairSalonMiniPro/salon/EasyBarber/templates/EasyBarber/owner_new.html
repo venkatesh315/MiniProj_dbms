@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
 {% block title %} Customers {% endblock %}
-
+{% load crispy_forms_tags %}
 {% block content %}
+
+<div class="headown">
 <h1 style="color:DodgerBlue">Owner SignUp</h1>
+<h2 style="color:Gold"> Step 1: Enter Personal Details</h2>
+</div>
+
 <form method="post">
     <table>
-        {{form}}
+        {{form|crispy}}
     </table>
     {% csrf_token %}
     <br>

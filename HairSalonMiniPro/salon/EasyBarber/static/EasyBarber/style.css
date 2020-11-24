@@ -1,7 +1,7 @@
 body{
 font-family: Serif;
 background-image:url('https://www.headcurve.com/wp-content/uploads/2018/12/Barbershop-interior-design-dec8-00013.jpg');
-color:OrangeRed;
+color:Lime;
 
 }
 
@@ -34,12 +34,56 @@ text-transform:uppercase;
 
 }
 
-.quotes
-{
-text-align:center;
-color:Red;
+
+
+div.box {
+  margin-left: 500px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  width:400px;
+  align:center;
+
+
 }
 
+div.box p {
+  text-align:center;
+  margin: 2%;
+  font-weight: bold;
+  color: #000000;
+}
+
+
+div.bigbox {
+  margin-left: 10px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  width:800px;
+  align:center;
+
+
+}
+
+div.bigbox p {
+  text-align:center;
+  margin: 2%;
+  font-weight: bold;
+  color: #000000;
+}
+
+div.headcust h1
+{
+background-color:black;
+width:350px;
+}
+
+div.headcust h2
+{
+background-color:black;
+width:350px;
+}
 
 .column img
 {
@@ -50,9 +94,44 @@ color:Red;
 
 }
 
-p {
+div.about p {
   font-size: 18px;
 }
 
 
+div.headown h1
+{
+background-color:black;
+width:350px;
+}
 
+div.headown h2
+{
+background-color:black;
+width:350px;
+}
+
+div.custpass h2
+{
+background-color:black;
+width:350px;
+}
+
+div.shophead h1
+{
+background-color:black;
+width:400px;
+}
+
+div.listshop li
+{
+color:Gold;
+size:20px;
+
+}
+
+div.listshop
+{
+color:Gold
+
+}

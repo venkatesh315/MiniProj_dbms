@@ -3,7 +3,10 @@
 {% block title %}Salon Shops{% endblock %}
 
 {% block content %}
+<div class="shophead">
 <h1 style="color:DodgerBlue">Our Esteemed Salon Shops</h1>
+</div>
+<div class="listshop">
 <li>
     <ol>Empire Cuts</ol>
     <ol>Style Street</ol>
@@ -21,7 +24,7 @@
     <ol>Cutting Edge</ol>
     <ol>Hair Force</ol>
 </li>
-
-<p>Link for <a href="{% url 'home'  %}">HOME</a></p>
+</div>
+<p><a href="{% url 'home'  %}" style="color:DodgerBlue">HOME</a></p>
 
 {% endblock %}

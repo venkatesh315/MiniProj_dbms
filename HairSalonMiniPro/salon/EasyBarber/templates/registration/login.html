@@ -8,12 +8,16 @@ Login Here
 
 {% block content %}
 
-    <h1 style="color:Red">Customer Login</h1>
-
+    <h1 style="color:DodgerBlue">Login</h1>
+	<br>
+	<br>
      <form method="post">
 	{% csrf_token %}
+
 	{{form|crispy}}
-	<p>Don't have an accoount? Create one <a href="{% url 'fcs' %}">here</a></p>
+
+	<p>Don't have a Customer account? Create one <a href="{% url 'fcs' %}">Here</a></p>
+		 <p>Don't have an Owner account? Create one <a href="{% url 'fos' %}">Here</a></p>
 	<button type="submit" style="margin-left: 100px">Login</button>
     </form>
 {% endblock %}

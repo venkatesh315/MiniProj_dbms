@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Book Now {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="schedule">
+<h1 style="color:DodgerBlue">Book Your Appointment</h1>
+</div>
+
+<form method="post">
+    <table>
+        {{form|crispy}}
+    </table>
+    {% csrf_token %}
+    <br>
+    <button type="submit" style="margin-left: 150px">Submit</button>
+</form>
+<br>
+<a href="{% url 'home'  %}">HOME</a>
+{% endblock %}

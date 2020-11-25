@@ -3,6 +3,8 @@ from django.forms import modelform_factory
 from .models import *
 from EasyBarber.forms import RegisterForm
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from EasyBarber.forms_book import ScheduleForm
 
 # Create your views here.
 
@@ -71,6 +73,19 @@ def register_owner(request):
         return render(request, "EasyBarber/own_password.html", {"form": form_ow})
 
 
+
+
+@login_required
+def my_appointments(request):
+    if request.method == "POST":
+        form_app =ScheduleForm(request.POST)
+        if form_app.is_valid():
+            form_app.save()
+            return redirect(welcome)
+
+    else:
+        form_app = ScheduleForm()
+    return render(request,'EasyBarber/schedule.html', {"form":form_app})
 
 
 

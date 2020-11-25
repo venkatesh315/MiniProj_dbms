@@ -9,4 +9,5 @@ urlpatterns=[
     path('cust_pass',views.register_cust,name='cust_pass'),
     path('own_pass',views.register_owner,name='own_pass'),
     path('shop_names',views.list_of_shops,name='store'),
+    path('appointment',views.my_appointments,name='schedule'),
 ]

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 import uuid
 # Create your models here.
 
@@ -31,7 +32,8 @@ class Shop_Barber(models.Model):
 class Customer(models.Model):
     cust_id=models.IntegerField(primary_key=True)
     cust_name=models.CharField(max_length=50,unique=True)
-    cust_email=models.EmailField(max_length=50)
+    #cust_name = models.OneToOneField(User,on_delete=models.SET_NULL,null=True)
+    cust_email=models.EmailField(max_length=50,unique=True)
     cust_phone=models.IntegerField()
     cust_address=models.TextField(max_length=100)
     cust_gender=models.CharField(max_length=6,choices=(('Male','male'),('Female','female')))
@@ -41,8 +43,9 @@ class Customer(models.Model):
 
 
 class Appointment(models.Model):
-    app_no=models.CharField(max_length=20,blank=True, unique=True, default=uuid.uuid4)
+    app_no=models.CharField(primary_key=True,max_length=100,blank=True, unique=True, default=uuid.uuid4)
     cust_name=models.ForeignKey(Customer,on_delete=models.SET_NULL,null=True,to_field='cust_name',related_name='+')
+    cust_email=models.ForeignKey(Customer,on_delete=models.SET_NULL,null=True,to_field='cust_email',related_name='+')
     shop_name=models.ForeignKey(Shop_Owner,on_delete=models.SET_NULL,null=True,to_field='shop_name',related_name='+',)
     emp_name=models.ForeignKey(Shop_Barber,on_delete=models.SET_NULL,null=True,to_field='emp_name',related_name='+')
     date=models.DateField()
@@ -57,7 +60,7 @@ class Appointment(models.Model):
 
 class Payment(models.Model):
     pay_id = models.CharField(max_length=15, blank=True, unique=True, default=uuid.uuid4)
-    app_no=models.ForeignKey(Appointment,on_delete=models.SET_NULL,null=True)
+    app_no = models.ForeignKey(Appointment, to_field='app_no', on_delete=models.SET_NULL, null=True)
     amt=models.IntegerField()
 
     def __str__(self):

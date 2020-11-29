@@ -5,10 +5,16 @@
 
 {% block content %}
 
+{% if confirm %}
+<center>
+    <h2>Thanks {{confirm}}! </h2>
+       <p>We will respond shortly with the confirmation email for the the appointment booked </p>
+</center>
+
+{% else %}
 <div class="schedule">
 <h1 style="color:DodgerBlue">Book Your Appointment</h1>
 </div>
-
 <form method="post">
     <table>
         {{form|crispy}}
@@ -17,6 +23,8 @@
     <br>
     <button type="submit" style="margin-left: 150px">Submit</button>
 </form>
+
+{% endif %}
 <br>
 <a href="{% url 'home'  %}">HOME</a>
 {% endblock %}

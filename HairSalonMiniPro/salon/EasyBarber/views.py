@@ -5,7 +5,7 @@ from EasyBarber.forms import RegisterForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from EasyBarber.forms_book import ScheduleForm
-
+from django.core.mail import send_mail
 # Create your views here.
 
 
@@ -77,18 +77,42 @@ def register_owner(request):
 
 @login_required
 def my_appointments(request):
-    if request.method == "POST":
-        form_app =ScheduleForm(request.POST)
-        if form_app.is_valid():
-            form_app.save()
-            return redirect(welcome)
 
-    else:
-        form_app = ScheduleForm()
-    return render(request,'EasyBarber/schedule.html', {"form":form_app})
+        if request.method == 'POST':
+            form_app = ScheduleForm(request.POST)
+            if form_app.is_valid():
+                email_id = request.POST.get('cust_email', False)
+                name = request.POST.get('cust_name', False)
+                form_app.save()
+
+                send_mail(
+                'EasyBarber Appointment Confirmation',  #Subject
+                'Hello '+ name + ' Your appointment has been confirmed',#message
+                'EasyBarber@gmail.com', #from
+                [email_id],#to_email
+                )
+                return render(request, 'EasyBarber/schedule.html',{"form": form_app, "confirm": name})
+
+        else:
+            form_app = ScheduleForm()
+        return render(request,'EasyBarber/schedule.html',{"form": form_app})
+
+
+ #  if request.method == "POST":
+   #     form_app = ScheduleForm(request.POST)
+    #    if form_app.is_valid():
+     #       temp=form_app.save(commit=False)
+      #      get_uname = request.user.username
+       #     temp.cust_name = get_uname
+        #    temp=form_app.save()
+         #   return redirect(welcome)
 
 
 
+
+
+
+#candidate.user = UserProfile.objects.get(user=self.request.user)
 
 
 

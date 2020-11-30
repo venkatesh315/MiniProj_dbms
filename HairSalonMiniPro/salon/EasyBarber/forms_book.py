@@ -9,7 +9,7 @@ from .models import *
 class ScheduleForm(ModelForm):
     class Meta:
         model = Appointment
-        fields = ['cust_email','shop_name','emp_name','date','time','service_type','service_category']
+        fields = ['shop_name','emp_name','date','time','service_type','service_category']
         #fields='__all__'
         widgets = {
 

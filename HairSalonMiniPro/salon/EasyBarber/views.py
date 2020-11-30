@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from EasyBarber.forms_book import ScheduleForm
 from django.core.mail import send_mail
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -85,15 +86,19 @@ def my_appointments(request):
                 email_id = request.POST.get('cust_email', False)
                 time_msg=request.POST.get('time',False)
                 date_msg=request.POST.get('date',False)
+                user = User.objects.get(id=2)
+                user_email = user.email
                 inst=form_app.save(commit=False)
                 name=request.user.get_full_name()
+
                 inst.cust_name=name
+                inst.cust_email=user_email
                 inst.save()
                 send_mail(
                 'EasyBarber Appointment Confirmation',  #Subject
                 'Hello '+ name + ' Your appointment on ' + date_msg + 'at '+ time_msg + ' has been confirmed',#message
                 'EasyBarber@gmail.com', #from
-                [email_id],#to_email
+                [user_email],#to_email
                 )
                 return render(request, 'EasyBarber/schedule.html',{"form": form_app, "confirm": name})
 

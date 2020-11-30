@@ -79,15 +79,19 @@ def register_owner(request):
 def my_appointments(request):
 
         if request.method == 'POST':
+
             form_app = ScheduleForm(request.POST)
             if form_app.is_valid():
                 email_id = request.POST.get('cust_email', False)
-                name = request.POST.get('cust_name', False)
-                form_app.save()
-
+                time_msg=request.POST.get('time',False)
+                date_msg=request.POST.get('date',False)
+                inst=form_app.save(commit=False)
+                name=request.user.get_full_name()
+                inst.cust_name=name
+                inst.save()
                 send_mail(
                 'EasyBarber Appointment Confirmation',  #Subject
-                'Hello '+ name + ' Your appointment has been confirmed',#message
+                'Hello '+ name + ' Your appointment on ' + date_msg + 'at '+ time_msg + ' has been confirmed',#message
                 'EasyBarber@gmail.com', #from
                 [email_id],#to_email
                 )

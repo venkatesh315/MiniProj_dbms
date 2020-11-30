@@ -9,12 +9,13 @@ from .models import *
 class ScheduleForm(ModelForm):
     class Meta:
         model = Appointment
-        #fields = ['cust_name','cust_email','shop_name','emp_name','date','time','service_type','service_category']
-        fields='__all__'
+        fields = ['cust_email','shop_name','emp_name','date','time','service_type','service_category']
+        #fields='__all__'
         widgets = {
 
             'date':DateInput(attrs={"type":"date"}),
-            'time':TimeInput(attrs={"type":"time"})
+            'time':TimeInput(attrs={"type":"time"}),
+
         }
 
 

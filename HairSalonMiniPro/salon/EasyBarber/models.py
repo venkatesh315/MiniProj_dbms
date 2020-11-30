@@ -44,7 +44,7 @@ class Customer(models.Model):
 
 class Appointment(models.Model):
     app_no=models.CharField(primary_key=True,max_length=100,blank=True, unique=True, default=uuid.uuid4)
-    cust_name=models.ForeignKey(Customer,on_delete=models.SET_NULL,null=True,to_field='cust_name',related_name='+')
+    cust_name=models.CharField(max_length=50)
     cust_email=models.ForeignKey(Customer,on_delete=models.SET_NULL,null=True,to_field='cust_email',related_name='+')
     shop_name=models.ForeignKey(Shop_Owner,on_delete=models.SET_NULL,null=True,to_field='shop_name',related_name='+',)
     emp_name=models.ForeignKey(Shop_Barber,on_delete=models.SET_NULL,null=True,to_field='emp_name',related_name='+')

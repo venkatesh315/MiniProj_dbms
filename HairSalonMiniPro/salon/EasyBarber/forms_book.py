@@ -20,24 +20,11 @@ class ScheduleForm(ModelForm):
 
 
 
+
     def clean_date(self):
         d=self.cleaned_data.get("date")
         if d < date.today():
             raise ValidationError("Appointments cannot be booked for the past date")
         return d
-
-    #  def __init__(self, *args, **kwargs):
-    #         self._user = kwargs.pop('user')
-    #        super(ScheduleForm, self).__init__(*args, **kwargs)
-
-    # def save(self, commit=True):
-    #        inst = super(ScheduleForm, self).save(commit=False)
-    #       obj=Appointment
-    #      obj.name_user = self._user
-    #     #obj.cust_name=self._user
-    #    if commit:
-    #       inst.save()
-    #      self.save_m2m()
-    # return inst
 
 

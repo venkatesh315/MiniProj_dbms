@@ -6,12 +6,15 @@
 {% block content %}
 
 {% if confirm %}
-<center>
-    <h2>Thanks {{confirm}}! </h2>
-       <p>We will respond shortly with the confirmation email for the the appointment booked </p>
-</center>
+<div class="confirm">
 
+    <h2>Thanks {{confirm}}! </h2>
+       <h3>We will respond shortly with the confirmation email for the the appointment booked </h3>
+
+</div>
 {% else %}
+<br>
+<br>
 <div class="schedule">
 <h1 style="color:DodgerBlue">Book Your Appointment</h1>
 </div>
@@ -23,8 +26,16 @@
     <br>
     <button type="submit" style="margin-left: 150px">Submit</button>
 </form>
-
-{% endif %}
 <br>
 <a href="{% url 'home'  %}">HOME</a>
+{% endif %}
+<br>
+<br>
+<h2 style="color:Gold">
+    Check the Confirmed Appointments
+</h2>
+<a href="{% url 'display_booked' %}"> Appointment List </a>
+<br>
+
+
 {% endblock %}

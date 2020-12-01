@@ -10,4 +10,5 @@ urlpatterns=[
     path('own_pass',views.register_owner,name='own_pass'),
     path('shop_names',views.list_of_shops,name='store'),
     path('appointment',views.my_appointments,name='schedule'),
+    path('bookings',views.display_booked,name='display_booked'),
 ]

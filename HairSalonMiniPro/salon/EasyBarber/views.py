@@ -76,17 +76,18 @@ def register_owner(request):
 
 
 
-@login_required
+@login_required(login_url='/login')
 def my_appointments(request):
 
         if request.method == 'POST':
 
             form_app = ScheduleForm(request.POST)
             if form_app.is_valid():
-                email_id = request.POST.get('cust_email', False)
+
                 time_msg=request.POST.get('time',False)
                 date_msg=request.POST.get('date',False)
-                user = User.objects.get(id=2)
+                current_user=request.user
+                user = User.objects.get(id=current_user.id)
                 user_email = user.email
                 inst=form_app.save(commit=False)
                 name=request.user.get_full_name()
@@ -96,7 +97,7 @@ def my_appointments(request):
                 inst.save()
                 send_mail(
                 'EasyBarber Appointment Confirmation',  #Subject
-                'Hello '+ name + ' Your appointment on ' + date_msg + 'at '+ time_msg + ' has been confirmed',#message
+                'Hello '+ name + ' Your appointment on ' + date_msg + ' at '+ time_msg + ' has been confirmed',#message
                 'EasyBarber@gmail.com', #from
                 [user_email],#to_email
                 )
@@ -107,21 +108,10 @@ def my_appointments(request):
         return render(request,'EasyBarber/schedule.html',{"form": form_app})
 
 
- #  if request.method == "POST":
-   #     form_app = ScheduleForm(request.POST)
-    #    if form_app.is_valid():
-     #       temp=form_app.save(commit=False)
-      #      get_uname = request.user.username
-       #     temp.cust_name = get_uname
-        #    temp=form_app.save()
-         #   return redirect(welcome)
+def display_booked(request):
+    return render(request, 'EasyBarber/list_booked.html', {'booked': Appointment.objects.all()})
 
 
-
-
-
-
-#candidate.user = UserProfile.objects.get(user=self.request.user)
 
 
 

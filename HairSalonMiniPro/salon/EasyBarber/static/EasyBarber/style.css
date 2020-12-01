@@ -135,3 +135,58 @@ div.listshop
 color:Gold
 
 }
+
+div.confirm
+{
+background-color:black;
+margin: auto;
+width: 60%;
+border: 3px solid #FFD700;
+padding: 10px;
+color:DodgerBlue;
+}
+
+div.confirm h2
+{
+text-align:center;
+}
+
+div.confirm h3
+{
+margin-left:40px;
+}
+
+div.schedule
+{
+background-color:black;
+width:350px;
+}
+
+
+#confirmed_app {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#confirmed_app tr:nth-child(even){background-color: Black;}
+#confirmed_app tr:nth-child(odd){background-color: Black;}
+#confirmed_app tr:hover {background-color: #4B0082;}
+
+#confirmed_app th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+div.confirm_head
+{
+color:DodgerBlue;
+background-color:black;
+width:300px;
+}
+
+
+

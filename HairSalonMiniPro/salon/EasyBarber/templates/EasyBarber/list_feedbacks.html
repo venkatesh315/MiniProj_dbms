@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}List {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="rev_head">
+<h1> List of Reviews</h1>
+</div>
+<table id="confirmed_rev">
+    <tr style="background-color:lightgray">
+        <th>Appointment Number</th>
+        <th>Customer Name</th>
+        <th>Shop Name</th>
+        <th>Employee Name</th>
+        <th>Ratings</th>
+        <th>Comments</th>
+
+    </tr>
+    {% for feed in feedbacks %}
+       <tr>
+           <td>{{feed.app_no}}</td>
+           <td>{{feed.cust_name }}</td>
+           <td>{{feed.shop_name}}</td>
+           <td>{{feed.emp_name}}</td>
+           <td>{{feed.rating}}</td>
+           <td>{{feed.comment}}</td>
+
+       </tr>
+    {% endfor %}
+
+</table>
+<br>
+<a href="{% url 'home'  %}">HOME</a>
+{% endblock %}

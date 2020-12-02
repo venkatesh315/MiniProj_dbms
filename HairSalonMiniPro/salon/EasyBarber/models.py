@@ -67,7 +67,10 @@ class Payment(models.Model):
         return f'Payment id:{self.pay_id} for appointment:{self.app_no}'
 
 class Reviews(models.Model):
-    app_no=models.ForeignKey(Appointment,on_delete=models.SET_NULL,null=True)
+    app_no=models.ForeignKey(Appointment,on_delete=models.SET_NULL,null=True,to_field='app_no',related_name='+')
+    cust_name=models.CharField(max_length=50)
+    shop_name = models.ForeignKey(Shop_Owner, on_delete=models.SET_NULL, null=True, to_field='shop_name',related_name='+')
+    emp_name = models.ForeignKey(Shop_Barber, on_delete=models.SET_NULL, null=True, to_field='emp_name', related_name='+')
     rating=models.IntegerField(choices=((1,'one'),(2,'two'),(3,'three'),(4,'four'),(5,'five')))
     comment=models.TextField(max_length=300)
 

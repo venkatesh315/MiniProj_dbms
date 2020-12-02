@@ -11,4 +11,8 @@ urlpatterns=[
     path('shop_names',views.list_of_shops,name='store'),
     path('appointment',views.my_appointments,name='schedule'),
     path('bookings',views.display_booked,name='display_booked'),
+    path('reviews', views.my_reviews, name='reviews'),
+    path('feedbacks',views.display_feedbacks,name='display_feedbacks'),
+
+
 ]

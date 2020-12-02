@@ -19,8 +19,6 @@ class ScheduleForm(ModelForm):
         }
 
 
-
-
     def clean_date(self):
         d=self.cleaned_data.get("date")
         if d < date.today():

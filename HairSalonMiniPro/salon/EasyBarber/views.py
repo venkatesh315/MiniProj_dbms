@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.forms import modelform_factory
 from .models import *
-from EasyBarber.forms import RegisterForm
+from EasyBarber.forms import *
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from EasyBarber.forms_book import ScheduleForm
@@ -115,6 +115,32 @@ def display_booked(request):
 
 
 
+
+@login_required(login_url='/login')
+def my_reviews(request):
+
+        if request.method == 'POST':
+
+            form_rev = ReviewForm(request.POST)
+            if form_rev.is_valid():
+
+                inst=form_rev.save(commit=False)
+                name=request.user.get_full_name()
+
+                inst.cust_name=name
+                inst.save()
+
+                return render(request, 'EasyBarber/reviews.html', {"form": form_rev, "rev_name": name})
+
+        else:
+            form_rev = ReviewForm()
+        return render(request,'EasyBarber/reviews.html',{"form": form_rev})
+
+
+
+
+def display_feedbacks(request):
+    return render(request, 'EasyBarber/list_feedbacks.html', {'feedbacks': Reviews.objects.all()})
 
 
 

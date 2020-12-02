@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Reviews {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if rev_name %}
+<div class="feedb">
+
+    <h2>Thanks for the feedback {{rev_name}}! </h2>
+       <h3>Your valuable feedback will help us to serve you better </h3>
+
+</div>
+{% else %}
+<br>
+<br>
+<div class="give_review">
+<h1 style="color:DodgerBlue">Feedback Form</h1>
+</div>
+<form method="post">
+    <table>
+        {{form|crispy}}
+    </table>
+    {% csrf_token %}
+    <br>
+    <button type="submit" style="margin-left: 150px">Submit</button>
+</form>
+
+<a href="{% url 'home'  %}">HOME</a>
+{% endif %}
+
+
+<h2 style="color:Gold">
+    Feedback of the customers
+</h2>
+
+<a href="{% url 'display_feedbacks' %}">  Check Reviews Here !!!</a>
+<br>
+
+{% endblock %}

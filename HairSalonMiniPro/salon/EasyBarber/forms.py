@@ -3,6 +3,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms import ModelForm
+from .models import *
 
 
 
@@ -16,6 +18,15 @@ class RegisterForm(UserCreationForm):
 
 	    model = User
 	    fields = ["username", "email", "password1", "password2","first_name","last_name"]
+
+
+
+class ReviewForm(ModelForm):
+    class Meta:
+        model = Reviews
+        fields = ['app_no','shop_name','emp_name','rating','comment']
+
+
 
 
 

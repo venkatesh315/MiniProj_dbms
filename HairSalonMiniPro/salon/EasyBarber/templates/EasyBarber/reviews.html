@@ -14,10 +14,11 @@
 </div>
 {% else %}
 <br>
-<br>
 <div class="give_review">
-<h1 style="color:DodgerBlue">Feedback Form</h1>
+<h1>Feedback Form</h1>
 </div>
+
+<div class="formrev">
 <form method="post">
     <table>
         {{form|crispy}}
@@ -30,12 +31,11 @@
 <a href="{% url 'home'  %}">HOME</a>
 {% endif %}
 
-
 <h2 style="color:Gold">
     Feedback of the customers
 </h2>
 
 <a href="{% url 'display_feedbacks' %}">  Check Reviews Here !!!</a>
-<br>
+</div>
 
 {% endblock %}

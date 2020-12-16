@@ -25,7 +25,7 @@ class Shop_Barber(models.Model):
     emp_gender=models.CharField(max_length=6,choices=(('Male','male'),('Female','female')))
 
     def __str__(self):
-        return f'Barber: {self.emp_name}'
+        return f'Barber: {self.emp_name}({self.shop_name})'
 
 class Customer(models.Model):
     cust_id=models.IntegerField(primary_key=True)
@@ -38,6 +38,8 @@ class Customer(models.Model):
 
     def __str__(self):
         return f'{self.cust_name}'
+
+
 
 
 class Appointment(models.Model):
@@ -55,6 +57,8 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f'{self.cust_name} on {self.date} at {self.time}'
+
+
 
 class Payment(models.Model):
     pay_id = models.CharField(primary_key=True,max_length=100, blank=True, unique=True, default=uuid.uuid4)

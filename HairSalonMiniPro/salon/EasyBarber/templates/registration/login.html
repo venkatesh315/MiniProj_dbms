@@ -7,10 +7,12 @@ Login Here
 {% load crispy_forms_tags %}
 
 {% block content %}
-
-    <h1 style="color:DodgerBlue">Login</h1>
 	<br>
+	<div class="logs">
+    <h1 >Login</h1>
+	</div>
 	<br>
+	<div class="logform">
      <form method="post">
 	{% csrf_token %}
 
@@ -20,4 +22,5 @@ Login Here
 		 <p>Don't have an Owner account? Create one <a href="{% url 'fos' %}">Here</a></p>
 	<button type="submit" style="margin-left: 100px">Login</button>
     </form>
+	</div>
 {% endblock %}

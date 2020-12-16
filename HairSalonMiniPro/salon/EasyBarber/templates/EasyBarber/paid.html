@@ -15,17 +15,19 @@
 </div>
 {% else %}
 <br>
-<div class="headown">
-<h1 style="color:DodgerBlue">Pay Online</h1>
+<div class="payhd">
+<h1>Pay Online</h1>
 </div>
+<div class="payform">
 <form method="post">
     <table>
         {{form|crispy}}
     </table>
     {% csrf_token %}
     <br>
-    <button type="submit" style="margin-left: 150px">Pay </button>
+    <button type="submit" style="margin-left: 150px">PAY</button>
 </form>
 
+</div>
 {% endif %}
 {% endblock %}

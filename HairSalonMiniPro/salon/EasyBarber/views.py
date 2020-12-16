@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404,redirect
+from django.shortcuts import render,get_object_or_404,redirect , HttpResponseRedirect , reverse
 from django.forms import modelform_factory
 from .models import *
 from EasyBarber.forms import *
@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from EasyBarber.forms_book import ScheduleForm
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
+
 # Create your views here.
 
 
@@ -95,13 +96,16 @@ def my_appointments(request):
                 inst.cust_name=name
                 inst.cust_email=user_email
                 inst.save()
+                request.session["schedule_form"] = request.POST.dict()  # save the form as a dict in request.sessions
+
                 send_mail(
                 'EasyBarber Appointment Confirmation',  #Subject
                 'Hello '+ name + ' Your appointment on ' + date_msg + ' at '+ time_msg + ' has been confirmed',#message
                 'EasyBarber@gmail.com', #from
                 [user_email],#to_email
                 )
-                return render(request, 'EasyBarber/schedule.html',{"form": form_app, "confirm": name})
+
+                return redirect(pay_now)
 
         else:
             form_app = ScheduleForm()
@@ -140,7 +144,49 @@ def my_reviews(request):
 
 
 def display_feedbacks(request):
-    return render(request, 'EasyBarber/list_feedbacks.html', {'feedbacks': Reviews.objects.all()})
+    return render(request, 'EasyBarber/list_feedbacks.html', {'feedbacks': Review.objects.all()})
+
+
+
+
+def pay_now(request):
+
+    if request.method == "POST":
+
+        form_pay = PayNow(request.POST)
+        if form_pay.is_valid():
+            fp=form_pay.save(commit=False)
+            name = request.user.get_full_name()
+
+            fp.cust_name = name
+            fp.save()
+
+
+
+
+            return render(request, 'EasyBarber/paid.html', {'confirm': name ,"pid":fp.pay_id })
+
+    else:
+        form_data = request.session.pop('schedule_form', {})
+
+        pay_appno = form_data.get("app_no")
+        pay_service = form_data.get("service_category")
+        if pay_service == 'Haircut':
+            pay_amt=250
+        elif pay_service == 'Massage':
+            pay_amt=200
+        elif pay_service == 'Hair Colour':
+            pay_amt=300
+        elif pay_service == 'Shave':
+            pay_amt=150
+        else:
+            pay_amt=400
+        form_pay = PayNow(
+            initial={"app_no": pay_appno, "amt":pay_amt})  # initialize the form with the data
+
+    return render(request, 'EasyBarber/paid.html', {'form': form_pay})
+
+
 
 
 

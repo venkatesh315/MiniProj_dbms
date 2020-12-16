@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Customers {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+{% if confirm %}
+<div class="confirm">
+    <h2>Payment Successful({{pid}})</h2>
+    <h2>Thanks {{confirm}}! </h2>
+       <h3>We will respond shortly with the confirmation email for the the appointment booked </h3>
+
+</div>
+{% else %}
+<br>
+<div class="headown">
+<h1 style="color:DodgerBlue">Pay Online</h1>
+</div>
+<form method="post">
+    <table>
+        {{form|crispy}}
+    </table>
+    {% csrf_token %}
+    <br>
+    <button type="submit" style="margin-left: 150px">Pay </button>
+</form>
+
+{% endif %}
+{% endblock %}

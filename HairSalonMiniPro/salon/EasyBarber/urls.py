@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns=[
     path('home',views.welcome,name='home'),
     path('owner_signup',views.owner_signup,name='fos'),
@@ -9,10 +10,11 @@ urlpatterns=[
     path('cust_pass',views.register_cust,name='cust_pass'),
     path('own_pass',views.register_owner,name='own_pass'),
     path('shop_names',views.list_of_shops,name='store'),
-    path('appointment',views.my_appointments,name='schedule'),
     path('bookings',views.display_booked,name='display_booked'),
     path('reviews', views.my_reviews, name='reviews'),
     path('feedbacks',views.display_feedbacks,name='display_feedbacks'),
+    path('appointment',views.my_appointments,name='schedule'),
+    path('online_payment',views.pay_now, name='amount'),
 
 
 ]

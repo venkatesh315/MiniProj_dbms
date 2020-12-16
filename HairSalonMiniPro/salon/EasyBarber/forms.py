@@ -23,10 +23,18 @@ class RegisterForm(UserCreationForm):
 
 class ReviewForm(ModelForm):
     class Meta:
-        model = Reviews
+        model = Review
         fields = ['app_no','shop_name','emp_name','rating','comment']
 
 
+
+class PayNow(ModelForm):
+
+
+
+    class Meta:
+        model = Payment
+        fields = ['pay_id','app_no','amt']
 
 
 

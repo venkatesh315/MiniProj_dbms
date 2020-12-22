@@ -8,11 +8,13 @@
 
 {% if confirm %}
 <div class="confirm">
-    <h2>Payment Successful({{pid}})</h2>
+    <h2>Payment Successful</h2>
     <h2>Thanks {{confirm}}! </h2>
-       <h3>We will respond shortly with the confirmation email for the the appointment booked </h3>
-
+    <h3>We will respond shortly with the confirmation email for the the appointment booked </h3>
+    <h3>Download the Invoice from the below link</h3>
+    <a href="{% url 'pay_view' %}">CLICK HERE</a>
 </div>
+
 {% else %}
 <br>
 <div class="payhd">

@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-
+from .views import render_pdf_view
+# app_name='payment'
 
 urlpatterns=[
     path('home',views.welcome,name='home'),
@@ -15,6 +16,7 @@ urlpatterns=[
     path('feedbacks',views.display_feedbacks,name='display_feedbacks'),
     path('appointment',views.my_appointments,name='schedule'),
     path('online_payment',views.pay_now, name='amount'),
+    path('paidpdf',render_pdf_view,name="pay_view"),
 
 
 ]

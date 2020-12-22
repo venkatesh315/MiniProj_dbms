@@ -8,10 +8,22 @@ from EasyBarber.forms_book import ScheduleForm
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 
+
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.views.generic import ListView
+
+
+
+from django.views.generic import View
+from django.contrib import messages
+
 # Create your views here.
 
 
 def welcome(request):
+
     return render(request,'EasyBarber/welcome.html')
 
 def about_us(request):
@@ -157,14 +169,15 @@ def pay_now(request):
         if form_pay.is_valid():
             fp=form_pay.save(commit=False)
             name = request.user.get_full_name()
-
             fp.cust_name = name
+
+
             fp.save()
+            request.session["payment_form"] = request.POST.dict()
 
 
 
-
-            return render(request, 'EasyBarber/paid.html', {'confirm': name ,"pid":fp.pay_id })
+            return render(request, 'EasyBarber/paid.html', {'confirm': name})
 
     else:
         form_data = request.session.pop('schedule_form', {})
@@ -189,7 +202,28 @@ def pay_now(request):
 
 
 
+def render_pdf_view(request):
+    paid_data = request.session.pop('payment_form', {})
+    pay_appno = paid_data.get("app_no")
+    pay_no = paid_data.get("pay_id")
+    pay_amt=paid_data.get("amt")
+    name=request.user.get_full_name()
+    template_path = 'EasyBarber/pdf1.html'
+    context = {'customer': name ,'application': pay_appno , 'payment':pay_no, 'money': pay_amt}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="Invoice.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
 
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+     html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
 
 

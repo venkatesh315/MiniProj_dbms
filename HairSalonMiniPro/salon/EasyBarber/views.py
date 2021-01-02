@@ -20,8 +20,6 @@ from django.views.generic import View
 from django.contrib import messages
 
 # Create your views here.
-
-
 def welcome(request):
 
     return render(request,'EasyBarber/welcome.html')
@@ -209,7 +207,7 @@ def render_pdf_view(request):
     pay_amt=paid_data.get("amt")
     name=request.user.get_full_name()
     template_path = 'EasyBarber/pdf1.html'
-    context = {'customer': name ,'application': pay_appno , 'payment':pay_no, 'money': pay_amt}
+    context = {'customer': name ,'application': pay_appno ,'payment':pay_no, 'money': pay_amt}
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'filename="Invoice.pdf"'

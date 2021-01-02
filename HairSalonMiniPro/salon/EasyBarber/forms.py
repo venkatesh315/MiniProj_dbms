@@ -8,9 +8,6 @@ from .models import *
 
 
 
-
-
-
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
 

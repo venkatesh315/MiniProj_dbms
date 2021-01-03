@@ -167,7 +167,7 @@ text-align:center;
 
 div.confirm h3
 {
-text-align:center;
+margin-left:40px;
 }
 
 div.logs h1
@@ -329,7 +329,6 @@ color:DodgerBlue;
 background-color:black;
 width:300px;
 }
-
 
 div.alert {
   padding: 20px;

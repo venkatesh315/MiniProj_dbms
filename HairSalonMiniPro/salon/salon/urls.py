@@ -25,7 +25,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('EasyBarber/',include('EasyBarber.urls')),      #namespace='payment'
+    path('EasyBarber/',include('EasyBarber.urls')),
     path('', include("django.contrib.auth.urls")),
 ]
 

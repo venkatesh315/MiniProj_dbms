@@ -25,7 +25,7 @@ class Shop_Barber(models.Model):
     emp_gender=models.CharField(max_length=6,choices=(('Male','male'),('Female','female')))
 
     def __str__(self):
-        return f'{self.emp_name}({self.shop_name})'
+        return f'Barber: {self.emp_name}({self.shop_name})'
 
 class Customer(models.Model):
     cust_id=models.IntegerField(primary_key=True)

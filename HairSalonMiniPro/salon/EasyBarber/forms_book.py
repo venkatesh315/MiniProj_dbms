@@ -10,15 +10,13 @@ class ScheduleForm(ModelForm):
     class Meta:
         model = Appointment
         fields = ['app_no','shop_name','emp_name','date','time','service_type','service_category']
-        #fields='__all__'
+
         widgets = {
 
             'date':DateInput(attrs={"type":"date"}),
             'time':TimeInput(attrs={"type":"time"}),
 
         }
-
-
 
 
     def clean_date(self):

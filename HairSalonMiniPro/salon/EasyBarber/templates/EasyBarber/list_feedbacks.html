@@ -6,10 +6,21 @@
 {% block content %}
 <div class="rev_head">
 <h1> List of Reviews</h1>
+
 </div>
+<div class="rev_head">
+    <h2>Filter below</h2>
+</div>
+<br>
+
+<form method="get">
+    {{revFilter.form}}
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+<br>
 <table id="confirmed_rev">
     <tr style="background-color:lightgray">
-        <th>Appointment Number</th>
+        <th>Appointment Details</th>
         <th>Customer Name</th>
         <th>Shop Name</th>
         <th>Employee Name</th>

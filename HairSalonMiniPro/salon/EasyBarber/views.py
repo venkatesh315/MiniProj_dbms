@@ -13,7 +13,7 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.views.generic import ListView
-
+from .filters import *
 
 
 from django.views.generic import View
@@ -125,7 +125,11 @@ def my_appointments(request):
 
 
 def display_booked(request):
-    return render(request, 'EasyBarber/list_booked.html', {'booked': Appointment.objects.all()})
+
+    dis_book=Appointment.objects.all()
+    myFilter=BookFilter(request.GET,queryset=dis_book)
+    dis_book=myFilter.qs
+    return render(request, 'EasyBarber/list_booked.html', {'booked': dis_book,'myFilter': myFilter})
 
 
 
@@ -156,7 +160,10 @@ def my_reviews(request):
 
 
 def display_feedbacks(request):
-    return render(request, 'EasyBarber/list_feedbacks.html', {'feedbacks': Review.objects.all()})
+    dis_rev = Review.objects.all()
+    revFilter = RevFilter(request.GET, queryset=dis_rev)
+    dis_rev = revFilter.qs
+    return render(request, 'EasyBarber/list_feedbacks.html', {'feedbacks': dis_rev,'revFilter': revFilter})
 
 
 

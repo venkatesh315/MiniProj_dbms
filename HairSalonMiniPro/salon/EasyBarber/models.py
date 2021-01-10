@@ -25,12 +25,11 @@ class Shop_Barber(models.Model):
     emp_gender=models.CharField(max_length=6,choices=(('Male','male'),('Female','female')))
 
     def __str__(self):
-        return f'Barber: {self.emp_name}({self.shop_name})'
+        return f'{self.emp_name}({self.shop_name})'
 
 class Customer(models.Model):
     cust_id=models.IntegerField(primary_key=True)
     cust_name=models.CharField(max_length=50,unique=True)
-    #cust_name = models.OneToOneField(User,on_delete=models.SET_NULL,null=True)
     cust_email=models.EmailField(max_length=50,unique=True)
     cust_phone=models.IntegerField()
     cust_address=models.TextField(max_length=100)

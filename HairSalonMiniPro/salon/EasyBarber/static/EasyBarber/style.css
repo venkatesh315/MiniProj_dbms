@@ -5,6 +5,24 @@ color:Lime;
 
 }
 
+div.EasyBarb h1
+{
+background-color:black;
+color:DodgerBlue;
+width:290px;
+margin-left:160px;
+text-align:center;
+text-transform:uppercase;
+}
+div.aboutus h1
+{
+background-color:black;
+color:DodgerBlue;
+width:150px;
+margin-left:40px;
+text-align:center;
+}
+
 #name
 {
 color:White;
@@ -328,6 +346,7 @@ div.rev_head
 color:DodgerBlue;
 background-color:black;
 width:300px;
+
 }
 
 div.alert {

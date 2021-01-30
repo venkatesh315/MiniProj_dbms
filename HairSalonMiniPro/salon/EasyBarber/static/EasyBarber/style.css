@@ -1,14 +1,17 @@
 body{
 font-family: Serif;
-background-image:url('https://www.headcurve.com/wp-content/uploads/2018/12/Barbershop-interior-design-dec8-00013.jpg');
-color:Lime;
+background-image:url('https://thearchitecturedesigns.com/wp-content/uploads/2020/03/salon-shop-ideas-6.jpg');
+color:Lavender;
+height: 100%;
+background-position: center;
 
+background-size: cover;
 }
 
 div.EasyBarb h1
 {
-background-color:black;
-color:DodgerBlue;
+background-color:#2F5233;
+color:Gold;
 width:290px;
 margin-left:160px;
 text-align:center;
@@ -16,8 +19,8 @@ text-transform:uppercase;
 }
 div.aboutus h1
 {
-background-color:black;
-color:DodgerBlue;
+background-color:#2F5233;
+color:Gold;
 width:150px;
 margin-left:40px;
 text-align:center;
@@ -26,9 +29,9 @@ text-align:center;
 #name
 {
 color:White;
-background-color:Black;
+background-color:#966F33;
 margin-left:300px;
-width:380px;
+width:300px;
 text-transform:capitalize;
 
 }
@@ -93,7 +96,7 @@ div.bigbox p {
 
 div.headcust h1
 {
-background-color:black;
+background-color:#2F5233;
 width:350px;
 margin-left:30px;
 text-align:center;
@@ -101,7 +104,7 @@ text-align:center;
 
 div.headcust h2
 {
-background-color:black;
+background-color:#2F5233;
 width:350px;
 margin-left:30px;
 text-align:center;
@@ -122,7 +125,7 @@ div.about p {
 
 div.headown h1
 {
-background-color:black;
+background-color:#2F5233;
 width:350px;
 text-align:center;
 margin-left:30px;
@@ -130,7 +133,7 @@ margin-left:30px;
 
 div.headown h2
 {
-background-color:black;
+background-color:#2F5233;
 width:350px;
 text-align:center;
 margin-left:30px;
@@ -138,13 +141,13 @@ margin-left:30px;
 
 div.custpass h2
 {
-background-color:black;
+background-color:#2F5233;
 width:350px;
 }
 
 div.shophead h1
 {
-background-color:black;
+background-color:#2F5233;
 width:400px;
 }
 
@@ -157,7 +160,7 @@ size:20px;
 
 div.listshop
 {
-background-color:black;
+background-color:#2F5233;
 margin: auto;
 width: 60%;
 border: 3px solid #FFD700;
@@ -170,7 +173,7 @@ font-size:17px;
 
 div.confirm
 {
-background-color:black;
+background-color:b#2F5233;
 margin: auto;
 width: 60%;
 border: 3px solid #FFD700;
@@ -199,23 +202,52 @@ color:DodgerBlue;
 div.logform
 {
 margin-left:30px;
-font-size:18px;
-
+font-size:21px;
+color:Yellow;
 }
 
 div.schedule
 {
-background-color:black;
+background-color:#2F5233;
 width:400px;
 text-align:center;
 margin-left:30px;
 
 }
 
+div.check_app
+{
+background-color:#2F5233;
+width:280px;
+
+margin-left:30px;
+color:Gold;
+}
+
+div.check_link
+{
+background-color:#2F5233;
+width:200px;
+margin-left:30px;
+color:Gold;
+font-size:19px;
+}
+
+
+div.check_app a
+{
+background-color:#2F5233;
+width:400px;
+text-align:center;
+margin-left:30px;
+color:Gold;
+}
+
+
 div.formsched
 {
 margin-left:30px;
-font-size:18px;
+font-size:19px;
 }
 
 
@@ -241,9 +273,9 @@ font-size:20px;
 div.payhd
 {
 text-align:center;
-background-color:black;
+background-color:#2F5233;
 width:300px;
-color:DodgerBlue;
+color:Gold;
 }
 
 #confirmed_app {
@@ -252,8 +284,8 @@ color:DodgerBlue;
   width: 100%;
 }
 
-#confirmed_app tr:nth-child(even){background-color: Black;}
-#confirmed_app tr:nth-child(odd){background-color: Black;}
+#confirmed_app tr:nth-child(even){background-color: #2F5233;}
+#confirmed_app tr:nth-child(odd){background-color: #2F5233;}
 #confirmed_app tr:hover {background-color: #4B0082;}
 
 #confirmed_app th {
@@ -264,13 +296,24 @@ color:DodgerBlue;
   color: white;
 }
 
+div.filtered_get
+{
+font-size:21px;
+}
+
 div.confirm_head
 {
-color:DodgerBlue;
-background-color:black;
+color:Gold;
+background-color:#2F5233;
 width:300px;
 }
 
+div.filter_appoint
+{
+color:Orange;
+background-color:#2F5233;
+width:150px;
+}
 
 
 
@@ -298,9 +341,9 @@ text-align:center;
 
 div.give_review
 {
-background-color:black;
+background-color:#2F5233;
 width:300px;
-color:DodgerBlue;
+color:Gold;
 text-align:center;
 }
 
@@ -312,12 +355,12 @@ font-size:18px;
 
 div.formrev a
 {
-background-color:black;
-font-size:22px;
+background-color:#2F5233;
+font-size:20px;
 }
 div.formrev h2
 {
-background-color:black;
+background-color:#2F5233;
 width:370px;
 text-align:center;
 }
@@ -329,8 +372,8 @@ text-align:center;
   width: 100%;
 }
 
-#confirmed_rev tr:nth-child(even){background-color: Black;}
-#confirmed_rev tr:nth-child(odd){background-color: Black;}
+#confirmed_rev tr:nth-child(even){background-color: #2F5233;}
+#confirmed_rev tr:nth-child(odd){background-color: #2F5233;}
 #confirmed_rev tr:hover {background-color: #4B0082;}
 
 #confirmed_rev th {
@@ -343,15 +386,23 @@ text-align:center;
 
 div.rev_head
 {
-color:DodgerBlue;
-background-color:black;
+color:Gold;
+background-color:#2F5233;
 width:300px;
+text-align:center;
+}
 
+div.head_rev
+{
+color:Orange;
+background-color:#2F5233;
+width:190px;
+margin-left:20px;
 }
 
 div.alert {
   padding: 20px;
-  background-color: Purple;
+  background-color: #966F33;
   color: Gold;
 }
 

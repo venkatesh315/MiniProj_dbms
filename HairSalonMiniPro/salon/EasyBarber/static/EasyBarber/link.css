@@ -6,8 +6,8 @@ li
 #menu
 {
 
-  background-color: Black;
-  color: DodgerBlue;
+  background-color: #2F5233;
+
   padding: 14px 25px;
   text-align: center;
   text-decoration: none;
@@ -18,12 +18,12 @@ li
 
 /* unvisited link */
 a:link {
-  color: DodgerBlue;
+  color: Gold;
 }
 
 /* visited link */
 a:visited {
-  color: DodgerBlue;
+  color: Gold;
 }
 
 /* mouse over link */

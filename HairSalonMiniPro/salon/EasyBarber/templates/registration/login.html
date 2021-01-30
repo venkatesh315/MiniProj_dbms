@@ -7,7 +7,9 @@ Login Here
 {% load crispy_forms_tags %}
 
 {% block content %}
+
 	<br>
+
 	<div class="logs">
     <h1 >Login</h1>
 	</div>
@@ -17,10 +19,21 @@ Login Here
 	{% csrf_token %}
 
 	{{form|crispy}}
+	<br>
 
+	<button type="submit" style="margin-left: 100px">Login</button>
+
+
+		 <br>
+		 <br>
+<br>
+		 <br>
+		<br>
+		 <br>
 	<p>Don't have a Customer account? Create one <a href="{% url 'fcs' %}">Here</a></p>
 		 <p>Don't have an Owner account? Create one <a href="{% url 'fos' %}">Here</a></p>
-	<button type="submit" style="margin-left: 100px">Login</button>
+		 <br>
+
     </form>
 	</div>
 {% endblock %}

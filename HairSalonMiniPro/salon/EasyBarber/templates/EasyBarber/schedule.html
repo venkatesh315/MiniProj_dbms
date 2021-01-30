@@ -7,7 +7,7 @@
 
 <br>
 <div class="schedule">
-<h1 style="color:DodgerBlue">Book Your Appointment</h1>
+<h1 style="color:Orange">Book Your Appointment</h1>
 </div>
 <div class="formsched">
 <form method="post">
@@ -25,11 +25,17 @@
 
 <br>
 
-<h2 style="color:Gold">
-    Check the Confirmed Appointments
-</h2>
-<a href="{% url 'display_booked' %}"> Appointment List </a>
-</div>
-<br>
 
+</div>
+<div class="check_app">
+
+<h2>
+     Confirmed Appointments
+</h2>
+
+    </div>
+<br>
+<div class="check_link">
+<a href="{% url 'display_booked' %}"> Check Appointment List </a>
+</div>
 {% endblock %}

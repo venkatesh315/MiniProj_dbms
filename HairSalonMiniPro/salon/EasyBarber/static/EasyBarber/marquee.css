@@ -1,8 +1,8 @@
 .marquee {
 
     line-height:10px;
-	color: Gold;
-	background-color:Black;
+	color:Gold;
+	background-color:#2F5233;
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;

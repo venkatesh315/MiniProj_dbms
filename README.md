@@ -1,2 +1,2 @@
 # MiniProj_dbms
- A Django based web application
+DBMS mini-project
